@@ -1,40 +1,52 @@
+Features
+
 Property:
-    - name
-    - main image
-    - images *
-    - price / day
-    - description
-    - place *
+
+
+    - Property Name
+    - Main Image
+    - Gallery Images *
+    - Price / Day
+    - Description
+    - Location *
+
+Rating:
 
 
     - rating *
         - room show rating
-        - Add related 
+        - Add related details
         - Room --> Avrage rating
-    - book room *
+
+Booking:
+
+
+    - Book room *
         - Book 
         - Check availibility
-    - related rooms
+    - Related rooms
 
 
 Users
 
 
 Blog:
-    - Title
-    - Tag *
-    - image
-    - Create at 
+    - Post Title
+    - Tags *
+    - Thumbnail Image
+    - Created at 
     - Author
-    - description
-    - Categories *
-    - Comments *
+    - Post description
+    - Post Categories *
+    - User Comments *
 
 
 About:
-    - image
-    - What we do
-    - our mission
+
+
+    - Image
+    - Our Services
+    - Mission Statement
     - Our Goal
 
 
@@ -44,12 +56,12 @@ About:
 
 
 Website:
-    - Phone
+    - Contact Phone
     - Adress
     - Email
-    - name
-    - Logo
-    - Description
+    - Name
+    - Brand Logo
+    - Website Description
     - Fc Link
-    - Twitter link 
-    - Instagram
+    - Twitter Link 
+    - Instagram Link
