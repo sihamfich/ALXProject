@@ -9,6 +9,7 @@ Property:
     - Price / Day
     - Description
     - Location *
+    - Category
 
 Rating:
 
@@ -50,12 +51,12 @@ About:
     - Our Goal
 
 
-    FAQ:
+    FAQ (Frequent Ask Question):
         - Title
         - Description
 
 
-Website:
+Website Information:
 
 
     - Contact Phone
