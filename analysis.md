@@ -31,6 +31,8 @@ Users
 
 
 Blog:
+
+
     - Post Title
     - Tags *
     - Thumbnail Image
@@ -56,6 +58,8 @@ About:
 
 
 Website:
+
+
     - Contact Phone
     - Adress
     - Email
