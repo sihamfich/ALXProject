@@ -16,7 +16,9 @@ Property:
         - Check availibility
     - related rooms
 
+
 Users
+
 
 Blog:
     - Title
@@ -28,15 +30,18 @@ Blog:
     - Categories *
     - Comments *
 
+
 About:
     - image
     - What we do
     - our mission
     - Our Goal
 
+
     FAQ:
         - Title
         - Description
+
 
 Website:
     - Phone
