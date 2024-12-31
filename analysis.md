@@ -1,10 +1,10 @@
 Property:
     - name
     - main image
-    - images
+    - images *
     - price / day
     - description
-    - place
+    - place *
 
 
     - rating
@@ -37,3 +37,14 @@ About:
     FAQ:
         - Title
         - Description
+
+Website:
+    - Phone
+    - Adress
+    - Email
+    - name
+    - Logo
+    - Description
+    - Fc Link
+    - Twitter link 
+    - Instagram
