@@ -7,11 +7,11 @@ Property:
     - place *
 
 
-    - rating
+    - rating *
         - room show rating
         - Add related 
         - Room --> Avrage rating
-    - book room
+    - book room *
         - Book 
         - Check availibility
     - related rooms
@@ -20,13 +20,13 @@ Users
 
 Blog:
     - Title
-    - Tag
+    - Tag *
     - image
     - Create at 
     - Author
     - description
-    - Categories
-    - Comment
+    - Categories *
+    - Comments *
 
 About:
     - image
