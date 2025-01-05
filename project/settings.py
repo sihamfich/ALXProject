@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'About',
     'Acounts',
     'Blog',
-    'Settings'
+    'Settings',
+    'Property',
+    'taggit',
 ]
 
 MIDDLEWARE = [
