@@ -170,6 +170,7 @@ INSTALLED_APPS = [
     'Settings',
     'Property',
     'taggit',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -232,7 +233,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -254,3 +255,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
