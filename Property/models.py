@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 # Property Model
@@ -14,19 +15,20 @@ class Property(models.Model):
     Location = models.ForeignKey('Location', related_name='Property_Location',on_delete=models.CASCADE)
     Category = models.ForeignKey('Category', related_name='Property_Category',on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
-    Slug = models.SlugField(null=True, blank=True)
-   
+    slug = models.SlugField(null=True, blank=True)
+    
     def save(self, *args, **kwargs):
-        if not self.Slug:
+        if not self.slug:
             self.slug = slugify(self.Name)
-        super(Property, self).save(*args, **kwargs) # Call the real save() method
-
-
+        super(Property, self).save(*args, **kwargs)
+      
 
     # Property Features
     def __str__(self):
         return self.Name
-
+    
+    def get_absolute_url(self):
+        return reverse("Property:property_detail", kwargs={'slug': self.slug})
 
 # Property Images Model
 class PropertyImages(models.Model):
