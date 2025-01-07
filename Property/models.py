@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.utils.text import slugify
 
 # Create your models here.
 # Property Model
@@ -13,6 +14,14 @@ class Property(models.Model):
     Location = models.ForeignKey('Location', related_name='Property_Location',on_delete=models.CASCADE)
     Category = models.ForeignKey('Category', related_name='Property_Category',on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+    Slug = models.SlugField(null=True, blank=True)
+   
+    def save(self, *args, **kwargs):
+        if not self.Slug:
+            self.slug = slugify(self.Name)
+        super(Property, self).save(*args, **kwargs) # Call the real save() method
+
+
 
     # Property Features
     def __str__(self):

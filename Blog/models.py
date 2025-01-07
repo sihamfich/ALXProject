@@ -17,6 +17,14 @@ class BlogPost(models.Model):
     CreatedDate = models.DateTimeField(default=timezone.now)
     Image = models.ImageField(_('Image') ,upload_to='BlogPost/')
     Category = models.ForeignKey('Category', related_name='BlogPost_Category', on_delete=models.CASCADE , verbose_name=_('Category'))
+    Slug = models.SlugField(null=True, blank=True)
+   
+    def save(self, *args, **kwargs):
+        if not self.Slug:
+            self.slug = slugify(self.Title)
+        super(BlogPost, self).save(*args, **kwargs) # Call the real save() method
+
+ 
   
     def __str__(self):
         return self.Title
