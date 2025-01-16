@@ -1,9 +1,15 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 from .models import Property , PropertyImages , Location , Category , PropertyReview , PropertyBooking
 
-admin.site.register(Property)
+
+# Apply summernote to all TextField in model.
+class SomeModelAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
+    summernote_fields = '__all__'
+    
+admin.site.register(Property, SomeModelAdmin)
 admin.site.register(PropertyImages)
 admin.site.register(Location)
 admin.site.register(Category)

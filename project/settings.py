@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Settings',
     'Property',
     'taggit',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -171,6 +172,8 @@ INSTALLED_APPS = [
     'Property',
     'taggit',
     'django_summernote',
+    'bootstrap4',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -246,6 +249,7 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -256,4 +260,4 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+
