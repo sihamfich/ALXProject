@@ -17,22 +17,23 @@ class BlogPost(models.Model):
     CreatedDate = models.DateTimeField(default=timezone.now)
     Image = models.ImageField(_('Image') ,upload_to='BlogPost/')
     Category = models.ForeignKey('Category', related_name='BlogPost_Category', on_delete=models.CASCADE , verbose_name=_('Category'))
-    Slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True)
    
     def save(self, *args, **kwargs):
-        if not self.Slug:
-            self.Slug = slugify(self.Title)
+        if not self.slug:
+            self.slug = slugify(self.Title)
         super(BlogPost, self).save(*args, **kwargs) # Call the real save() method
 
  
-  
     def __str__(self):
         return self.Title
+    
+    def get_absolute_url(self):
+        return reverse("Blog:blogpost_Detail", kwargs={"slug": self.slug})
+    
 
 class Category(models.Model):
     Name = models.CharField(max_length=50)
 
-
-
     def __str__(self):
-        return self.name
+        return self.Name

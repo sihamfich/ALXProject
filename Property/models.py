@@ -76,8 +76,8 @@ class PropertyBooking(models.Model):
     Property = models.ForeignKey(Property, related_name='Property_Booking', on_delete=models.CASCADE)
     DateIn = models.DateField(default=timezone.now)
     DateOut = models.DateField(default=timezone.now)
-    Guests = models.IntegerField(max_length=2, choices=Count)
-    Children = models.IntegerField(max_length=2, choices=Count)
+    Guests = models.IntegerField(choices=Count)
+    Children = models.IntegerField(choices=Count)
 
     def __str__(self):
         return str(self.Property)   
