@@ -8,5 +8,5 @@ urlpatterns = [
     path('<slug:slug>', views.PostDetail.as_view(), name='blogpost_Detail'),
     
     path('category/<str:slug>', views.FilterByCategory.as_view(), name='filter_by_category'),
-    path('tags/<str:slug>/', views.FilterByTags.as_view(), name='filter_by_tags'),
+    path('tags/<str:slug>', views.FilterByTags.as_view(), name='filter_by_tags'),
 ]
