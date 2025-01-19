@@ -43,5 +43,5 @@ class FilterByTags(ListView):
         slug=self.kwargs['slug']
         object_list = BlogPost.objects.filter(
             Q(Tags__name__icontains=slug) # Use 'tags__name' for django-taggit
-        )        
+        )
         return object_list
