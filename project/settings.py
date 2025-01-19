@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'Property',
     'Blog',
     'Settings',
+    'About',
+    'Acounts',
+    'taggit',
     'django_summernote',
     'bootstrap4',
-    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Settings.footer_context_processor.myfooter',
             ],
         },
     },

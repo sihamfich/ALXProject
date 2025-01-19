@@ -21,4 +21,4 @@ def home_search(request):
         Q(Location__Name__icontains=location)
     )
     
-    return render(request, 'Settings/home_search.html', {property_list: property_list})
+    return render(request, 'Settings/home_search.html', {'property_list': property_list})
