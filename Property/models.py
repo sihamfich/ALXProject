@@ -49,6 +49,7 @@ class Location(models.Model):
 
 class Category(models.Model):
     Name = models.CharField(max_length=40)
+    Icon = models.CharField(max_length=40)
 
     def __str__(self):
         return self.Name
