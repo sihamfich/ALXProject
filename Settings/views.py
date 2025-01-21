@@ -18,7 +18,7 @@ def home(request):
         'category': category,
         'resturant_properties': resturant_properties,
         'hotels_properties': hotels_properties,
-        'location_properties': location_properties
+        'location_properties': location_properties,
     })
 
 
@@ -31,7 +31,7 @@ def home_search(request):
         Q(Location__Name__icontains=location)
     )
     
-    return render(request, 'Settings/home_search.html', {'property_list': property_list})
+    return render(request,'Settings/home_search.html', {'property_list': property_list})
 
 def CategoryFilter(request, category):
     category = Category.objects.get(Name=category)

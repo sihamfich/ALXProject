@@ -23,14 +23,14 @@
         <div class="container">
                 <div class="row">
                         <div class="col-md-8 ftco-animate">
-                                <h2 class="mb-3">{{ blogpost }}</h2>
-                                <p>{{ blogpost.Description|safe }}</p>
+                                <h2 class="mb-3">{{ BlogPost }}</h2>
+                                <p>{{ BlogPost.Description|safe }}</p>
 
 
                                 <div class="tag-widget post-tag-container mb-5 mt-5">
                                         <div class="tagcloud">
-                                                {% for tag in blogpost.Tags.all %}
-                                                <a href="#" class="tag-cloud-link">{{tag}}</a>
+                                                {% for tag in BlogPost.Tags.all %}
+                                                        <a href="#" class="tag-cloud-link">{{tag}}</a>
                                                 {% endfor %}
                                         </div>
                                 </div>
@@ -73,7 +73,7 @@
                                         <div class="categories">
                                                 <h3>Categories</h3>
                                                 {% for category in categories %}
-                                                <li><a href="{% url 'Blog:filter_by_category' category %}">{{category}} <span>{{category.num_posts}}</span></a></li>
+                                                        <li><a href="{% url 'Blog:filter_by_category' category %}">{{category}} <span>{{category.num_posts}}</span></a></li>
                                                 {% endfor %}
                                         </div>
                                 </div>
@@ -81,22 +81,22 @@
                                 <div class="sidebar-box ftco-animate">
                                         <h3>Recent Blog</h3>
                                         {% for post in recent_posts %}
-                                        <div class="block-21 mb-4 d-flex">
-                                                <a class="blog-img mr-4" style="background-image: url({{ post.Image.url }});"></a>
-                                                <div class="text">
-                                                        <h3 class="heading"><a
-                                                                        href="{{ post.get_absolute_url }}">{{ post.Title }}</a>
-                                                        </h3>
-                                                        <div class="meta">
-                                                                <div><a href="#"><span
-                                                                                        class="icon-calendar"></span>{{ post.CreatedDate|date:'j F Y' }}</a>
-                                                                </div>
-                                                                <div><a href="#"><span
-                                                                                        class="icon-person"></span>{{ post.Author.username }}</a>
+                                                <div class="block-21 mb-4 d-flex">
+                                                        <a class="blog-img mr-4" style="background-image: url({{ post.Image.url }});"></a>
+                                                        <div class="text">
+                                                                <h3 class="heading"><a
+                                                                                href="{{ post.get_absolute_url }}">{{ post.Title }}</a>
+                                                                </h3>
+                                                                <div class="meta">
+                                                                        <div><a href="#"><span
+                                                                                                class="icon-calendar"></span>{{ post.CreatedDate|date:'j F Y' }}</a>
+                                                                        </div>
+                                                                        <div><a href="#"><span
+                                                                                                class="icon-person"></span>{{ post.Author.username }}</a>
+                                                                        </div>
                                                                 </div>
                                                         </div>
                                                 </div>
-                                        </div>
                                         {% endfor %}
                                 </div>
 
@@ -121,8 +121,8 @@
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */ 
          
         var disqus_config = function () { 
-        this.page.url = "{{blogPost.get_absolute_url}}";  // Replace PAGE_URL with your page's canonical URL variable 
-        this.page.identifier = "{{blogPost.slug}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable 
+        this.page.url = "{{BlogPost.get_absolute_url}}";  // Replace PAGE_URL with your page's canonical URL variable 
+        this.page.identifier = "{{BlogPost.slug}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable 
         }; 
          
         (function() { // DON'T EDIT BELOW THIS LINE 
