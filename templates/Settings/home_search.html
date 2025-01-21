@@ -24,7 +24,7 @@
 			<div class="col-lg-9">
 				<div class="row">
 					{% for Property in property_list %}
-					<div class="col-md-4 ftco-animate">
+					  <div class="col-md-4 ftco-animate">
 						<div class="destination">
 							<a href="{{Property.get_absolute_url}}"
 								class="img img-2 d-flex justify-content-center align-items-center"
@@ -58,10 +58,10 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					  </div>
 
 					{% empty %}
-						<h5>no result</h5>
+						<h5>No results found</h5>
 					{% endfor %}
 				</div>
 
