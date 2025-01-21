@@ -9,16 +9,16 @@ def home(request):
     locations = Location.objects.all().annotate(property_count=Count('Property_Location'))
     category = Category.objects.all()
     
-    resturant_properties = Property.objects.filter(Category__Name='Restaurant')[:4]
-    hotels_properties = Property.objects.filter(Category__Name='Hotel')[:3]
-    location_properties = Property.objects.filter(Category__Name='Place')[:3]
+    resturant_list = Property.objects.filter(Category__Name='Restaurant')[:4]
+    hotel_list = Property.objects.filter(Category__Name='Hotel')[:3]
+    location_list = Property.objects.filter(Category__Name='Place')[:3]
     
     return render(request, 'Settings/home.html', {
         'locations': locations,
         'category': category,
-        'resturant_properties': resturant_properties,
-        'hotels_properties': hotels_properties,
-        'location_properties': location_properties,
+        'resturant_list': resturant_list,
+        'hotels_list': hotel_list,
+        'location_list': location_list,
     })
 
 

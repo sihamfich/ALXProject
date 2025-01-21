@@ -27,8 +27,8 @@
 									placeholder="Keyword search">
 									<option value="">Where</option>
 									{% for location in locations %}
-									<option value="{{location}}">{{location}}
-									</option>
+										<option value="{{location}}">{{location}}
+										</option>
 									{% endfor %}
 								</select>
 							</div>
@@ -40,10 +40,9 @@
 				<p>Or browse the highlights</p>
 				<p class="browse d-md-flex">
 					{% for category in category %}
-					<span class="d-flex justify-content-md-center align-items-md-center"><a
-							href="{% url 'Home:category_filter' category %}"><i
-								class="{{category.Icon}}"></i>{{category}}</a></span>
-
+						<span class="d-flex justify-content-md-center align-items-md-center"><a
+								href="{% url 'Home:category_filter' category %}"><i
+									class="{{category.Icon}}"></i>{{category}}</a></span>
 					{% endfor %}
 				</p>
 			</div>
@@ -150,42 +149,42 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			{% for place in location_properties %}
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="destination">
-						<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url({{place.Image.url}});">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3><a href="#">{{place}}</a></h3>
-									<p class="rate">
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star-o"></i>
-										<span>8 Rating</span>
-									</p>
-								</div>
-								<div class="two">
-									<span class="price">$200</span>
-								</div>
-							</div>
-							<p>Far far away, behind the word mountains, far from the countries</p>
-							<p class="days"><span>2 days 3 nights</span></p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span>
-								<span class="ml-auto"><a href="#">Discover</a></span>
-							</p>
+			{% for place in location_list %}
+			<div class="col-sm col-md-6 col-lg ftco-animate">
+				<div class="destination">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+						style="background-image: url({{place.Main_Image.url}});">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="icon-search2"></span>
 						</div>
+					</a>
+					<div class="text p-3">
+						<div class="d-flex">
+							<div class="one">
+								<h3><a href="#">{{place}}</a></h3>
+								<p class="rate">
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<span>8 Rating</span>
+								</p>
+							</div>
+							<div class="two">
+								<span class="price">$200</span>
+							</div>
+						</div>
+						<p>Far far away, behind the word mountains, far from the countries</p>
+						<p class="days"><span>2 days 3 nights</span></p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> San Franciso, CA</span>
+							<span class="ml-auto"><a href="#">Discover</a></span>
+						</p>
 					</div>
 				</div>
+			</div>
 			{% endfor %}
 		</div>
 	</div>
@@ -252,44 +251,44 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			{% for hotel in hotels_properties %}
-				<div class="col-sm col-md-6 col-lg-6 ftco-animate">
-					<div class="destination">
-						<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-						style="background-image: url({{ hotel.Image.url }});">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3><a href="#">{{hotel}}</a></h3>
-									<p class="rate">
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star"></i>
-										<i class="icon-star-o"></i>
-										<span>8 Rating</span>
-									</p>
-								</div>
-								<div class="two">
-									<span
-										class="price per-price">${{hotel.Price}}<br><small>/night</small></span>
-								</div>
-							</div>
-							<p>Far far away, behind the word mountains, far from the countries</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> Miami, Fl</span>
-								<span class="ml-auto"><a href="#">Book Now</a></span>
-							</p>
+			{% for hotel in hotel_list %}
+			<div class="col-sm col-md-6 col-lg-6 ftco-animate">
+				<div class="destination">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+						style="background-image: url({{ hotel.Main_Image.url }});">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="icon-search2"></span>
 						</div>
+					</a>
+					<div class="text p-3">
+						<div class="d-flex">
+							<div class="one">
+								<h3><a href="#">{{hotel}}</a></h3>
+								<p class="rate">
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<span>8 Rating</span>
+								</p>
+							</div>
+							<div class="two">
+								<span
+									class="price per-price">${{hotel.Price}}<br><small>/night</small></span>
+							</div>
+						</div>
+						<p>Far far away, behind the word mountains, far from the countries</p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> Miami, Fl</span>
+							<span class="ml-auto"><a href="#">Book Now</a></span>
+						</p>
 					</div>
 				</div>
+			</div>
 			{% endfor %}
-			
+
 		</div>
 	</div>
 </section>
@@ -395,34 +394,34 @@
 			</div>
 		</div>
 		<div class="row">
-			{% for restaurant in resturant_properties %}
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="destination">
-						<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url({{restaurant.Image.url}});">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<h3><a href="#">{{restaurant}}</a></h3>
-							<p class="rate">
-								<i class="icon-star"></i>
-								<i class="icon-star"></i>
-								<i class="icon-star"></i>
-								<i class="icon-star"></i>
-								<i class="icon-star-o"></i>
-								<span>8 Rating</span>
-							</p>
-							<p>Far far away, behind the word mountains, far from the countries</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span>
-								<span class="ml-auto"><a href="#">Discover</a></span>
-							</p>
+			{% for restaurant in location_list %}
+			<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="destination">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+						style="background-image: url({{restaurant.Main_Image.url}});">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="icon-search2"></span>
 						</div>
+					</a>
+					<div class="text p-3">
+						<h3><a href="#">{{restaurant}}</a></h3>
+						<p class="rate">
+							<i class="icon-star"></i>
+							<i class="icon-star"></i>
+							<i class="icon-star"></i>
+							<i class="icon-star"></i>
+							<i class="icon-star-o"></i>
+							<span>8 Rating</span>
+						</p>
+						<p>Far far away, behind the word mountains, far from the countries</p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> San Franciso, CA</span>
+							<span class="ml-auto"><a href="#">Discover</a></span>
+						</p>
 					</div>
 				</div>
+			</div>
 			{% endfor %}
 		</div>
 	</div>
