@@ -3,7 +3,7 @@
 {% block body %}
 
 
-<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_1.jpg'%});">
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_1.jpg' %});">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
@@ -204,7 +204,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="100000">0</strong>
+								<strong class="number" data-number="{{users_count}}">0</strong>
 								<span>Happy Customers</span>
 							</div>
 						</div>
@@ -212,7 +212,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="40000">0</strong>
+								<strong class="number" data-number="{{places_count}}">0</strong>
 								<span>Destination Places</span>
 							</div>
 						</div>
@@ -220,7 +220,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="87000">0</strong>
+								<strong class="number" data-number="{{hotel_count}}">0</strong>
 								<span>Hotels</span>
 							</div>
 						</div>
@@ -228,7 +228,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="56400">0</strong>
+								<strong class="number" data-number="{{restaurant_count}}">0</strong>
 								<span>Restaurant</span>
 							</div>
 						</div>
@@ -394,7 +394,7 @@
 			</div>
 		</div>
 		<div class="row">
-			{% for restaurant in location_list %}
+			{% for restaurant in resturant_list %}
 			<div class="col-md-6 col-lg-3 ftco-animate">
 				<div class="destination">
 					<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
@@ -436,78 +436,25 @@
 			</div>
 		</div>
 		<div class="row d-flex">
-			<div class="col-md-3 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="blog-single.html" class="block-20"
-						style="background-image: url('images/image_1.jpg');">
-					</a>
-					<div class="text p-4 d-block">
-						<span class="tag">Tips, Travel</span>
-						<h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that
-								you don't miss out</a></h3>
-						<div class="meta mb-3">
-							<div><a href="#">August 12, 2018</a></div>
-							<div><a href="#">Admin</a></div>
-							<div><a href="#" class="meta-chat"><span
-										class="icon-chat"></span> 3</a></div>
+			{% for blogpost in recent_blogpost %}
+				<div class="col-md-3 d-flex ftco-animate">
+					<div class="blog-entry align-self-stretch">
+						<a href="blog-single.html" class="block-20"
+							style="background-image: url({{blogpost.Image.url}});">
+						</a>
+						<div class="text p-4 d-block">
+							<span class="tag">Tips, Travel</span>
+							<h3 class="heading mt-3"><a href="#">{{blogpost}}</a></h3>
+							<div class="meta mb-3">
+								<div><a href="#">{{blogpost.CreatedDate|date:'j F Y'}}</a></div>
+								<div><a href="#">{{blogpost.Author}}</a></div>
+								
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="blog-single.html" class="block-20"
-						style="background-image: url('images/image_2.jpg');">
-					</a>
-					<div class="text p-4">
-						<span class="tag">Culture</span>
-						<h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has
-								no control about the blind texts</a></h3>
-						<div class="meta mb-3">
-							<div><a href="#">August 12, 2018</a></div>
-							<div><a href="#">Admin</a></div>
-							<div><a href="#" class="meta-chat"><span
-										class="icon-chat"></span> 3</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="blog-single.html" class="block-20"
-						style="background-image: url('images/image_3.jpg');">
-					</a>
-					<div class="text p-4">
-						<span class="tag">Tips, Travel</span>
-						<h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has
-								no control about the blind texts</a></h3>
-						<div class="meta mb-3">
-							<div><a href="#">August 12, 2018</a></div>
-							<div><a href="#">Admin</a></div>
-							<div><a href="#" class="meta-chat"><span
-										class="icon-chat"></span> 3</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="blog-single.html" class="block-20"
-						style="background-image: url('images/image_4.jpg');">
-					</a>
-					<div class="text p-4">
-						<span class="tag">Tips, Travel</span>
-						<h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has
-								no control about the blind texts</a></h3>
-						<div class="meta mb-3">
-							<div><a href="#">August 12, 2018</a></div>
-							<div><a href="#">Admin</a></div>
-							<div><a href="#" class="meta-chat"><span
-										class="icon-chat"></span> 3</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
+			
 		</div>
 	</div>
 </section>
