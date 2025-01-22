@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'Blog',
     'Settings',
     'About',
-    'Acounts',
+    'accounts',
     'taggit',
     'django_summernote',
     'bootstrap4',

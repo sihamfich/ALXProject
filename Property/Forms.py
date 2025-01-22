@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import PropertyBooking
+from .models import PropertyBooking , PropertyReview
 
 
 class PropertyBookingForm(forms.ModelForm):
@@ -8,3 +8,8 @@ class PropertyBookingForm(forms.ModelForm):
         model = PropertyBooking
         fields = ['DateIn','DateOut', 'Guests', 'Children']
        
+
+class PropertyReviewForm(forms.ModelForm):
+    class Meta:
+        model = PropertyReview
+        fields = ['Rating','Feedback']
