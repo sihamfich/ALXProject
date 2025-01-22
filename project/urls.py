@@ -21,14 +21,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
     path('Property/', include('Property.urls', namespace='Property')),
     path('Blog/', include('Blog.urls', namespace='Blog')),
     path('About/', include('About.urls', namespace='About')),
     path('', include('Settings.urls', namespace='Home')),
     path('summernote/', include('django_summernote.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
+    
    
 ]
 
