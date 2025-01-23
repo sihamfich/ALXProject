@@ -6,6 +6,8 @@ from django.views.generic.edit import FormMixin
 from .Forms import PropertyBookingForm
 from .filters import PropertyFilter
 from django_filters.views import FilterView
+from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 class PropertyListView(FilterView):
@@ -36,6 +38,17 @@ class PropertyDetailView(FormMixin, DetailView):
         else:
             print('Not valid')
 
+class NewProperty(CreateView):
+    model = Property
+    fields = ['Name', 'Description', 'Price', 'Location', 'Main_Image', 'Category']
 
-class AddListing(CreateView):
-    pass
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            myform = form.save(commit=False)
+            myform.owner = request.user
+            myform.save()
+            messages.success(request, 'Successfully Added Your Property')
+
+            ### send gmail message
+            return redirect(reverse('Property:property_list'))

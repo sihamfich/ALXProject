@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
+  <title>FlyOn - A Traveler’s Dream</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -44,12 +44,14 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'About:About' %}" class="nav-link">About</a></li>
-          <li class="nav-item active"><a href="{% url 'Property:property_list' %}" class="nav-link">Properties</a></li>
+          <li class="nav-item active"><a href="{% url 'Property:property_list' %}" class="nav-link">Destination</a></li>
           <li class="nav-item"><a href="{% url 'Blog:blogpost_list' %}" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="{% url 'Home:ContactUs' %}" class="nav-link">Contact</a></li>
-          <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Add listing</span></a></li>
+          
           {% if request.user.is_authenticated %}
             <li class="nav-item cta"><a href="{% url 'accounts:profile' %}" class="nav-link">Profile</a></li>
+            <li class="nav-item cta"><a href="{% url 'Property:property_new' %}" class="nav-link"><span>Add listing</span></a></li>
+            <li class="nav-item cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
             {% else%}
             <li class="nav-item cta"><a href="{% url 'login' %}" class="nav-link"><span>Login</span></a></li>
             <li class="nav-item cta"><a href="{% url 'accounts:signup' %}" class="nav-link"><span>Register</span></a></li>
