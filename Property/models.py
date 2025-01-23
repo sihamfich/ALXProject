@@ -8,6 +8,7 @@ from django.urls import reverse
 # Create your models here.
 # Property Model
 class Property(models.Model):
+    
     Name = models.CharField(max_length=100)
     Main_Image = models.ImageField(upload_to='Property/')
     Price = models.IntegerField(default=0)

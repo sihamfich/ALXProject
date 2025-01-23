@@ -58,10 +58,14 @@ def profile_edit(request):
 
 
 
-def my_reservation(request):
-    user_reservation = PropertyBooking.objects.filter(name=request.user)
-    return render(request,'profile/my_reservation.html' , {'user_reservation':user_reservation})
+def myreservation(request):
+    property_list = PropertyBooking.objects.filter(User=request.user)
+    return render(request,'profile/myreservation.html' , {'property_list' :property_list})
 
+
+def mylisting(request):
+    property_list = Property.objects.filter(User=request.user)
+    return render(request,'profile/myreservation.html' , {'property_list' :property_list})
 
 def add_feedback(request , slug):
     property = get_object_or_404(Property , slug=slug)

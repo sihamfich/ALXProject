@@ -1,6 +1,6 @@
 from django.db.models.base import django
 from django.shortcuts import redirect, render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Property
 from django.views.generic.edit import FormMixin
 from .Forms import PropertyBookingForm
@@ -35,3 +35,7 @@ class PropertyDetailView(FormMixin, DetailView):
             return redirect('/')
         else:
             print('Not valid')
+
+
+class AddListing(CreateView):
+    pass
