@@ -60,12 +60,12 @@ def profile_edit(request):
 
 def myreservation(request):
     property_list = PropertyBooking.objects.filter(User=request.user)
-    return render(request,'profile/myreservation.html' , {'property_list' :property_list})
+    return render(request,'profile/reservation.html' , {'property_list' :property_list})
 
 
 def mylisting(request):
-    property_list = Property.objects.filter(User=request.user)
-    return render(request,'profile/myreservation.html' , {'property_list' :property_list})
+    property_list = Property.objects.filter(Owner=request.user)
+    return render(request,'profile/mylisting.html' , {'property_list' :property_list})
 
 def add_feedback(request , slug):
     property = get_object_or_404(Property , slug=slug)

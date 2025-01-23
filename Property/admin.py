@@ -8,7 +8,11 @@ from .models import Property , PropertyImages , Location , Category , PropertyRe
 # Apply summernote to all TextField in model.
 class SomeModelAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     summernote_fields = '__all__'
-    
+    list_display = ['Name','Price','get_avg_rating','check_availability']
+
+
+
+
 admin.site.register(Property, SomeModelAdmin)
 admin.site.register(PropertyImages)
 admin.site.register(Location)

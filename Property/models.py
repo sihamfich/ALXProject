@@ -8,7 +8,7 @@ from django.urls import reverse
 # Create your models here.
 # Property Model
 class Property(models.Model):
-    
+    Owner = models.ForeignKey(User, related_name='Property_Owner', on_delete=models.CASCADE)
     Name = models.CharField(max_length=100)
     Main_Image = models.ImageField(upload_to='Property/')
     Price = models.IntegerField(default=0)
@@ -30,6 +30,34 @@ class Property(models.Model):
     
     def get_absolute_url(self):
         return reverse("Property:property_detail", kwargs={'slug': self.slug})
+    
+
+    def check_availability(self):
+        all_reservations = self.Property_Booking.all()
+        now = timezone.now().date()
+
+        for reservation in all_reservations:
+            if now > reservation.DateOut:
+                continue
+            
+            elif now > reservation.DateIn and now < reservation.DateOut:
+                reseved_to = reservation.DateOut
+                return f'In progress {reseved_to}' 
+                
+        return 'Available'
+                
+
+
+    def get_avg_rating(self):
+        all_reviews = self.Property_Review.all()
+        all_rating = 0
+
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                all_rating += review.Rating
+            return round(all_rating / len(all_reviews), 2)
+        else:
+            return  '-'
 
 # Property Images Model
 class PropertyImages(models.Model):
