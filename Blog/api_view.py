@@ -15,12 +15,14 @@ def post_list_api(request):
         return Response({'data': data})
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def post_detail_api(request, id):
         post = get_object_or_404(BlogPost, id=id)
         data = BlogPostSerializer(post).data
         return Response({'data': data})
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def post_search_api(request, query):
         posts = BlogPost.objects.filter(
         Q(Title__icontains=query) | Q(Description__icontains=query))

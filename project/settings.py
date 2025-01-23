@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ]
 
 
-REST_FRAMWORK = {
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]
