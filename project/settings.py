@@ -52,6 +52,14 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
 ]
+
+
+REST_FRAMWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
 SITE_ID = 1
 
 MIDDLEWARE = [
