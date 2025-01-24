@@ -19,7 +19,7 @@ class Property(models.Model):
     slug = models.SlugField(null=True, blank=True)
     
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.Name:
             self.slug = slugify(self.Name)
         super(Property, self).save(*args, **kwargs)
       
@@ -38,13 +38,13 @@ class Property(models.Model):
 
         for reservation in all_reservations:
             if now > reservation.DateOut:
-                continue
+                return 'Available'
             
             elif now > reservation.DateIn and now < reservation.DateOut:
-                reseved_to = reservation.DateOut
-                return f'In progress {reseved_to}' 
-                
-        return 'Available'
+                reserved_to = reservation.DateOut
+                return f'In progress to {reserved_to}'
+            else:
+                return 'Available'
                 
 
 
@@ -110,4 +110,10 @@ class PropertyBooking(models.Model):
     Children = models.IntegerField(choices=Count)
 
     def __str__(self):
-        return str(self.Property)   
+        return str(self.Property)
+    
+    def in_progress(self):
+        now = timezone.now().date()
+        return now > self.dateIn and now < self.dateOut
+
+    in_progress.boolean = True

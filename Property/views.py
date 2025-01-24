@@ -1,7 +1,7 @@
 from django.db.models.base import django
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Property
+from .models import Property, Category, PropertyReview
 from django.views.generic.edit import FormMixin
 from .Forms import PropertyBookingForm
 from .filters import PropertyFilter
@@ -13,7 +13,7 @@ from django.urls import reverse
 class PropertyListView(FilterView):
     model = Property 
     # pagination
-    paginate_by = 1
+    paginate_by = 3
     filterset_class = PropertyFilter
     template_name = 'Property/property_list.html'
     
@@ -24,6 +24,7 @@ class PropertyDetailView(FormMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["related"] = Property.objects.filter(Category=self.get_object().Category)[:2]
+        context['Review_count'] = PropertyReview.objects.filter(Property=self.get_object()).count()
         return context  
     
     def post(self, request, *args, **kwargs):
@@ -52,3 +53,8 @@ class NewProperty(CreateView):
 
             ### send gmail message
             return redirect(reverse('Property:property_list'))
+        
+def Property_Category(request, category):
+    my_category = Category.objects.get(name=category)
+    Property_Category = Property.objects.filter(category=my_category)
+    return render(request , 'property/filter_category.html' , {'Property_Category':Property_Category , 'my_category':my_category})

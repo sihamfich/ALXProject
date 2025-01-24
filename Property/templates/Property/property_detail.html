@@ -130,66 +130,39 @@
 						<h4 class="mb-4">Related Hotels</h4>
 						<div class="row">
 
-							{% for Property in related %}
-							<div class="col-md-4">
-								<div class="destination">
-									<a href="hotel-single.html" class="img img-2"
-										style="background-image: url({{Property.Main_Image.url}});"></a>
-									<div class="text p-3">
-										<div class="d-flex">
-											<div class="one">
-												<h3><a href="hotel-single.html">{{Property}}</a></h3>
-												<p class="rate">
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star-o"></i>
-													<span>8 Rating</span>
-												</p>
+							{% for related_property in related %}
+								<div class="col-md-4">
+									<div class="destination">
+										<a href="{{related_property.get_absolute_url}}" class="img img-2"
+											style="background-image: url({{related_property.Main_Image.url}});"></a>
+										<div class="text p-3">
+											<div class="d-flex">
+												<div class="one">
+													<h3><a href="{{related_property.get_absolute_url}}">{{related_property}}</a></h3>
+													<p class="rate">
+														<i class="icon-star"></i>
+														<i class="icon-star"></i>
+														<i class="icon-star"></i>
+														<i class="icon-star"></i>
+														<i class="icon-star-o"></i>
+														<span>8 Rating</span>
+													</p>
+												</div>
+												<div class="two">
+													<span class="price per-price">${{related_property.Price}}<br><small>/night</small></span>
+												</div>
 											</div>
-											<div class="two">
-												<span class="price per-price">${{Property.Price}}<br><small>/night</small></span>
-											</div>
+											<p>{{related_property.Description|safe|truncatewords:1}}</p>
+											<hr>
+											<p class="bottom-area d-flex">
+												<span><i class="icon-map-o"></i>{{related_property.Location}}</span>
+												<span class="ml-auto"><a href="{{related_property.get_absolute_url}}">Book Now</a></span>
+											</p>
 										</div>
-										<p>{{Property.Description|safe|truncatewords:1}}</p>
-										<hr>
-										<p class="bottom-area d-flex">
-											<span><i class="icon-map-o"></i>{{Property.Location}}</span>
-											<span class="ml-auto"><a href="#">Book Now</a></span>
-										</p>
 									</div>
 								</div>
-							</div>
 							{% endfor %}
-								<div class="destination">
-									<a href="hotel-single.html" class="img img-2"
-										style="background-image: url(images/hotel-3.jpg);"></a>
-									<div class="text p-3">
-										<div class="d-flex">
-											<div class="one">
-												<h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-												<p class="rate">
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star"></i>
-													<i class="icon-star-o"></i>
-													<span>8 Rating</span>
-												</p>
-											</div>
-											<div class="two">
-												<span class="price per-price">$40<br><small>/night</small></span>
-											</div>
-										</div>
-										<p>Far far away, behind the word mountains, far from the countries</p>
-										<hr>
-										<p class="bottom-area d-flex">
-											<span><i class="icon-map-o"></i> Miami, Fl</span>
-											<span class="ml-auto"><a href="#">Book Now</a></span>
-										</p>
-									</div>
-								</div>
+								
 							
 						</div>
 					</div>
