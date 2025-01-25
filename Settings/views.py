@@ -24,7 +24,7 @@ def home(request):
         'locations': locations,
         'category': category,
         'resturant_list': resturant_list,
-        'hotels_list': hotel_list,
+        'hotel_list': hotel_list,
         'location_list': location_list,
         'recent_blogpost': recent_blogpost,
         'users_count': users_count,

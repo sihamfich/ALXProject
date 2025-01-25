@@ -2,7 +2,7 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block body %}
-<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_5.jpg' %});">
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/profile.png' %});">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
@@ -23,12 +23,12 @@
 
 			<div class="col-lg-9">
 				<div class="row">
-					{% for Property in property_list %}
+					{% for property in property_list %}
 						<div class="col-md-4 ftco-animate">
 							<div class="destination">
-								<a href="{{Property.get_absolute_url}}"
+								<a href="{{property.get_absolute_url}}"
 									class="img img-2 d-flex justify-content-center align-items-center"
-									style="background-image: url({{Property.Property.Main_Image.url}});">
+									style="background-image: url({{property.Property.Main_Image.url}});">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>
@@ -36,7 +36,7 @@
 								<div class="text p-3">
 									<div class="d-flex">
 										<div class="one">
-											<h3><a href="{{Property.Property.get_absolute_url}}">{{Property.Property.Name}}</a></h3>
+											<h3><a href="{{property.get_absolute_url}}">{{property.Name}}</a></h3>
 											<p class="rate">
 												<i class="icon-star"></i>
 												<i class="icon-star"></i>
@@ -47,14 +47,14 @@
 											</p>
 										</div>
 										<div class="two">
-											<span class="price per-price">${{Property.Property.Price}}<br><small>/night</small></span>
+											<span class="price per-price">${{property.Price}}<br><small>/night</small></span>
 										</div>
 									</div>
-									<p>{{Property.Property.Description|safe|truncatewords:1}}</p>
+									<p>{{property.Description|safe|truncatewords:1}}</p>
 									<hr>
 									<p class="bottom-area d-flex">
-										<span><i class="icon-map-o"></i> {{Property.Property.Location}}</span>
-										<span class="ml-auto"><a href="{{Property.get_absolute_url}}">Book Now</a></span>
+										<span><i class="icon-map-o"></i> {{property.Location}}</span>
+										<span class="ml-auto"><a href="{{property.get_absolute_url}}">Book Now</a></span>
 									</p>
 								</div>
 							</div>

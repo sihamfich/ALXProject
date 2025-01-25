@@ -1,7 +1,7 @@
 from django.db.models.base import django
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Property, Category, PropertyReview
+from .models import Property, Category, PropertyReview, PropertyImages
 from django.views.generic.edit import FormMixin
 from .Forms import PropertyBookingForm
 from .filters import PropertyFilter
@@ -23,8 +23,9 @@ class PropertyDetailView(FormMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["related"] = Property.objects.filter(Category=self.get_object().Category)[:2]
+        context['related'] = Property.objects.filter(Category=self.get_object().Category)[:2]
         context['Review_count'] = PropertyReview.objects.filter(Property=self.get_object()).count()
+        context['property_images'] = PropertyImages.objects.filter(Property=self.get_object().id)
         return context  
     
     def post(self, request, *args, **kwargs):
@@ -34,10 +35,10 @@ class PropertyDetailView(FormMixin, DetailView):
             myform.Property = self.get_object()
             myform.User = request.user
             myform.save()
+            messages.success(request, 'Your Reservation Confirmed ')
             
-            return redirect('/')
-        else:
-            print('Not valid')
+            return redirect(reverse('Property:property_detail' , kwargs={'slug':self.get_object().slug}))
+        
 
 class NewProperty(CreateView):
     model = Property
@@ -53,8 +54,9 @@ class NewProperty(CreateView):
 
             ### send gmail message
             return redirect(reverse('Property:property_list'))
-        
-def Property_Category(request, category):
-    my_category = Category.objects.get(name=category)
-    Property_Category = Property.objects.filter(category=my_category)
-    return render(request , 'property/filter_category.html' , {'Property_Category':Property_Category , 'my_category':my_category})
+
+
+def property_category_view(request, category):
+    my_category = Category.objects.get(Name=category)
+    properties = Property.objects.filter(Category=my_category)
+    return render(request, 'Property/filter_category.html', {'properties': properties, 'my_category': my_category})
