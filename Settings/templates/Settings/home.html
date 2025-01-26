@@ -253,7 +253,7 @@
 		<div class="row justify-content-start mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
 				<span class="subheading">Special Offers</span>
-				<h2 class="mb-4"><strong>Popular</strong> Hotels &amp; Shopping</h2>
+				<h2 class="mb-4"><strong>Popular</strong> Hotels</h2>
 			</div>
 		</div>
 	</div>
@@ -450,16 +450,16 @@
 			{% for blogpost in recent_blogpost %}
 			<div class="col-md-3 d-flex ftco-animate">
 				<div class="blog-entry align-self-stretch">
-					<a href="blog-single.html" class="block-20"
+					<a href="{{blogpost.get_absolute_url}}" class="block-20"
 						style="background-image: url({{blogpost.Image.url}});">
 					</a>
 					<div class="text p-4 d-block">
 						<span class="tag">Tips, Travel</span>
-						<h3 class="heading mt-3"><a href="#">{{blogpost}}</a></h3>
+						<h3 class="heading mt-3"><a href="{{blogpost.get_absolute_url}}">{{blogpost}}</a></h3>
 						<div class="meta mb-3">
-							<div><a href="{{restaurant.get_absolute_url}}">{{blogpost.CreatedDate|date:'j F Y'}}</a>
+							<div><a href="{{blogpost.get_absolute_url}}">{{blogpost.CreatedDate|date:'j F Y'}}</a>
 							</div>
-							<div><a href="{{restaurant.get_absolute_url}}">{{blogpost.Author}}</a>
+							<div><a href="{{blogpost.get_absolute_url}}">{{blogpost.Author}}</a>
 							</div>
 
 						</div>
