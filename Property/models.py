@@ -19,7 +19,7 @@ class Property(models.Model):
     slug = models.SlugField(null=True, blank=True)
     
     def save(self, *args, **kwargs):
-        if not self.Name:
+        if self.Name:
             self.slug = slugify(self.Name)
         super(Property, self).save(*args, **kwargs)
       
