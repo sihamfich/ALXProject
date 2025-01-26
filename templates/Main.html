@@ -44,7 +44,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'About:About' %}" class="nav-link">About</a></li>
-          <li class="nav-item active"><a href="{% url 'Property:property_list' %}" class="nav-link">Destination</a></li>
+          <li class="nav-item active"><a href="{% url 'Property:property_list' %}" class="nav-link">Properties</a></li>
           <li class="nav-item"><a href="{% url 'Blog:blogpost_list' %}" class="nav-link">Blog</a></li>
 <!-- <li class="nav-item"><a href="{% url 'Home:ContactUs' %}" class="nav-link">Contact</a></li> -->          
           {% if request.user.is_authenticated %}
