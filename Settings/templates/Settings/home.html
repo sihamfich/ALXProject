@@ -178,7 +178,7 @@
 								<span class="price">${{place.Price}}</span>
 							</div>
 						</div>
-						<p>{{place.Description|safe|truncatewords:1}}</p>
+						<p>{{place.Description|safe|truncatewords:0}}</p>
 
 						<hr>
 						<p class="bottom-area d-flex">
@@ -423,7 +423,7 @@
 							<i class="icon-star-o"></i>
 							<span>8 Rating</span>
 						</p>
-						<p>{{restaurant.Description|safe|truncatewords:1}}</p>
+						<p>{{restaurant.Description|safe|truncatewords:0}}</p>
 						<hr>
 						<p class="bottom-area d-flex">
 							<span><i class="icon-map-o"></i>{{restaurant.Location}}</span>
